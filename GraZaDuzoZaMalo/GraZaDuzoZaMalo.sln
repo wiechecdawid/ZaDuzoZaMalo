@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraModel", "Gra.Model\GraModel.csproj", "{0233C010-190E-4331-8449-A9B9858749CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraConsoleApp", "GraConsoleApp\GraConsoleApp.csproj", "{2065E57A-D00A-4A26-962A-F0EE24AC0093}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0233C010-190E-4331-8449-A9B9858749CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0233C010-190E-4331-8449-A9B9858749CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0233C010-190E-4331-8449-A9B9858749CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0233C010-190E-4331-8449-A9B9858749CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2065E57A-D00A-4A26-962A-F0EE24AC0093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2065E57A-D00A-4A26-962A-F0EE24AC0093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2065E57A-D00A-4A26-962A-F0EE24AC0093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2065E57A-D00A-4A26-962A-F0EE24AC0093}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61D35880-F8E1-4BA3-AD63-ACFFEE414005}
+	EndGlobalSection
+EndGlobal
