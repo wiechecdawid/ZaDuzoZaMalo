@@ -12,6 +12,7 @@ namespace GraModel //logika gry
         //przy projektowaniu można na chwilę zmienić na public, albo zrobić metodę w ramach klasy, aby wyświetlić priv.
         public int MinZakres { get; } //private set; - mogę zmienić wewnątrz mojej klasy (readonly nie)
         public int MaxZakres { get; }
+        public TimeSpan Czas { get; private set; }
         //do zrobienia: czas gry, historia ruchów
         public Status StatusGry { get; private set; }
         public Odpowiedz Ocena(int propozycja)
@@ -37,6 +38,18 @@ namespace GraModel //logika gry
             /*Random rnd = new Random(); */ wylosowanaLiczba = (new Random()).Next(MinZakres, MaxZakres + 1);
             StatusGry = Status.WTrakcie;
         }
+
+        public void Czasomierz()
+        {
+            System.Diagnostics.Stopwatch time = System.Diagnostics.Stopwatch.StartNew();
+            if (StatusGry!=Status.WTrakcie)
+            {
+                time.Stop();
+                Czas = time.Elapsed;
+            }
+           
+        }
+        
         public int Poddaj()
         {
             StatusGry = Status.Poddana;
@@ -45,7 +58,7 @@ namespace GraModel //logika gry
 
         //status gry
         public enum Status { WTrakcie, Poddana, Zakończona }
-
-
+        
+        
     }
 }

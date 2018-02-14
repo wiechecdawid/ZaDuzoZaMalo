@@ -12,7 +12,7 @@ namespace GraModel
         static void Main(string[] args)
         {
             Gra g = new Gra(1, 100);
-
+            g.Czasomierz();
             do
             {
                 while (true)
@@ -21,11 +21,13 @@ namespace GraModel
                     string napis = Console.ReadLine();
                     if ((napis.ToLower().Trim()).Equals("x")) //NAPISÓW NIE WOLNO PORÓWNYWAĆ ZA POMOCĄ ==
                     {
-                        Console.WriteLine("wynik = {0}. KONIEC GRY", g.Poddaj());
+                        Console.WriteLine("wynik = {0}. KONIEC GRY. \nCzas gry: {1}\nNaciśnij ENTER by wyjść", g.Poddaj(), g.Czas);
+                        Console.ReadLine();
                         return; //funkcja Main nie zwraca wyniku więc nie musi zwracać liczby
                         //Environment.Exit(1); - systemowe, bezwarunkowe wyjście z aplikacji
                     }
                     int propozycja = 0;
+                    
                     try
                     {
                         propozycja = Int32.Parse(napis); //var zmusza do wywnioskowania typu (było ale trza było przenieść bo SCOPE)
@@ -53,7 +55,8 @@ namespace GraModel
                 }
             }
             while (g.StatusGry==Gra.Status.WTrakcie);
-            
+
+            Console.ReadLine();
         }
     }
 }
