@@ -53,7 +53,12 @@ namespace GraModel
                 }
             }
             while (g.StatusGry==Gra.Status.WTrakcie);
-            
+            foreach (var ruch in g.HistoriaGry)
+            {
+                Console.WriteLine($"-----{ruch.Liczba} | {ruch.Wynik} | {ruch.Czas}----")
+            }
+            Console.WriteLine("Całkowity czas gry: " + g.CalkowityCzasGry);
+            Console.WriteLine("Liczba ruchów: " + g.HistoriaGry.Count);
         }
     }
 }

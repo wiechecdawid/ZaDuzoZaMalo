@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//MVC model widok kontroller
 namespace GraModel //logika gry
 {
     public class Gra
@@ -14,15 +14,51 @@ namespace GraModel //logika gry
         public int MaxZakres { get; }
         //do zrobienia: czas gry, historia ruchów
         public Status StatusGry { get; private set; }
+        public DateTime CzasRozpoczecia { get; }
+        public DateTime CzasZakonczenia { get; private set; } //private set - zrobimy to w klasie, natomiast mysimy mieć
+        public TimeSpan CalkowityCzasGry => CzasZakonczenia - CzasRozpoczecia; //Timaspan - odcinek w czasie
+        public TimeSpan AktualnyCzasGry => DateTime.Now - CzasRozpoczecia;
+
+        //historia ruchów
+        public class Ruch
+        {
+            public int? Liczba { get; } //typy nullable - wartość może być liczbą, bądź null - dzięki temu można zanotować poddanie się 
+            public Odpowiedz? Wynik { get; }
+            public DateTime? Czas { get; }
+            public Status StatusGry { get; }
+
+            public Ruch(int? propozycja, Odpowiedz? odp, Status statusGry)
+            {
+                Liczba = propozycja;
+                Wynik = odp;
+                StatusGry = statusGry;
+                Czas = DateTime.Now;
+                
+            }
+        }
+
+        private List<Ruch> listaRuchow;
+        public IReadOnlyCollection<Ruch> HistoriaGry { get { return listaRuchow.AsReadOnly(); } }
         public Odpowiedz Ocena(int propozycja)
         {
-            if (propozycja < wylosowanaLiczba) return Odpowiedz.ZaMalo;
+            if (propozycja < wylosowanaLiczba)
+            {
+                listaRuchow.Add(new Ruch(propozycja, Odpowiedz.ZaMalo, Status.WTrakcie));
+                return Odpowiedz.ZaMalo;
+            }
             else if (propozycja == wylosowanaLiczba)
             {
                 StatusGry = Status.Zakończona;
+                CzasZakonczenia = DateTime.Now;
+                listaRuchow.Add(new Ruch(propozycja, Odpowiedz.Trafiony, Status.Zakończona));
                 return Odpowiedz.Trafiony;
             }
-            else return Odpowiedz.ZaDuzo;
+            else
+            {
+                listaRuchow.Add(new Ruch(propozycja, Odpowiedz.ZaDuzo, Status.WTrakcie));
+                return Odpowiedz.ZaDuzo;
+
+            }
         }
 
         public enum Odpowiedz { ZaMalo=-1, Trafiony=0, ZaDuzo=1} //stałe formalnie są wartościami liczbowymi
@@ -36,10 +72,14 @@ namespace GraModel //logika gry
             MaxZakres = max;
             /*Random rnd = new Random(); */ wylosowanaLiczba = (new Random()).Next(MinZakres, MaxZakres + 1);
             StatusGry = Status.WTrakcie;
+            CzasRozpoczecia = DateTime.Now;
+            listaRuchow = new List<Ruch>();
         }
         public int Poddaj()
         {
             StatusGry = Status.Poddana;
+            CzasZakonczenia = DateTime.Now;
+            listaRuchow.Add(new Ruch(null, null, StatusGry));
             return wylosowanaLiczba;
         }
 
