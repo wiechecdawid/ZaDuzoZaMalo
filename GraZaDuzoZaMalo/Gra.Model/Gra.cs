@@ -8,7 +8,7 @@ namespace GraModel //logika gry
 {
     public class Gra
     {
-        readonly private int wylosowanaLiczba; //readonly jest metodą - może być użyty przy polach private
+        public readonly /*private*/ int wylosowanaLiczba; //readonly jest metodą - może być użyty przy polach private
         //przy projektowaniu można na chwilę zmienić na public, albo zrobić metodę w ramach klasy, aby wyświetlić priv.
         public int MinZakres { get; } //private set; - mogę zmienić wewnątrz mojej klasy (readonly nie)
         public int MaxZakres { get; }
@@ -85,6 +85,16 @@ namespace GraModel //logika gry
 
         //status gry
         public enum Status { WTrakcie, Poddana, Zakończona }
+        public int? Wylosowana //typy wartościowe z pytajnikiem "nullables" - do zbioru wartości dodane zostaje null 
+        {
+            get
+            {
+                if (StatusGry != Gra.Status.WTrakcie)
+                    return wylosowanaLiczba;
+                else
+                    return null; //gdy gra jest w trakcie nie masz prawa poznać wylosowanej liczby
+            }
+        }
 
 
     }

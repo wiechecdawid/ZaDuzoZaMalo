@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GraModel;
 
-namespace GraModel
+namespace GraModel //prosty program, w którym spr czy klasa dobrze funkcjonuje 
 {
     class Program
     {
@@ -55,7 +55,7 @@ namespace GraModel
             while (g.StatusGry==Gra.Status.WTrakcie);
             foreach (var ruch in g.HistoriaGry)
             {
-                Console.WriteLine($"-----{ruch.Liczba} | {ruch.Wynik} | {ruch.Czas}----")
+                Console.WriteLine($"-----{ruch.Liczba} | {ruch.Wynik} | {ruch.Czas}----");
             }
             Console.WriteLine("Całkowity czas gry: " + g.CalkowityCzasGry);
             Console.WriteLine("Liczba ruchów: " + g.HistoriaGry.Count);

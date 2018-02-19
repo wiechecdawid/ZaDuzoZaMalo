@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraModel", "Gra.Model\GraMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraConsoleApp", "GraConsoleApp\GraConsoleApp.csproj", "{2065E57A-D00A-4A26-962A-F0EE24AC0093}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraCLI", "GraCLI\GraCLI.csproj", "{C3EE591F-695C-4B50-8936-F4AA9503FC8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2065E57A-D00A-4A26-962A-F0EE24AC0093}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2065E57A-D00A-4A26-962A-F0EE24AC0093}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2065E57A-D00A-4A26-962A-F0EE24AC0093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3EE591F-695C-4B50-8936-F4AA9503FC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3EE591F-695C-4B50-8936-F4AA9503FC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3EE591F-695C-4B50-8936-F4AA9503FC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3EE591F-695C-4B50-8936-F4AA9503FC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
