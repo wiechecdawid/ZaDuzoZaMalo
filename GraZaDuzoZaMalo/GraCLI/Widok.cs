@@ -60,6 +60,7 @@ namespace GraCLI
                 {
                     WriteLine("Nieznany błąd Spróbuj jeszcze raz.");
                     continue;
+                    
                 }
             }
             return wynik;
@@ -73,16 +74,19 @@ namespace GraCLI
         {
             Console.ForegroundColor = ConsoleColor.Red;
             WriteLine("Za Dużo!");
+            Console.ResetColor();
         }
         public void WypiszKomunikatZaMalo()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             WriteLine("Za Mało!");
+            Console.ResetColor();
         }
         public void WypiszKomunikatTrafiony()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             WriteLine("Trafiony!");
+            Console.ResetColor();
         }
         public bool ChceszKontynuowac() //może być property
         {
@@ -98,6 +102,15 @@ namespace GraCLI
             WriteLine("Wylosowano liczbę {0} z zakresu {1} do {2}", kontroler.WylosowanaLiczba, kontroler.MinZakres,kontroler.MaxZakres);
             WriteLine("Liczba prób " + kontroler.Historia.Count);
             WriteLine("Czas gry: " + kontroler.CzasGry.TotalSeconds + "s");
+        }
+        public void WypiszHistorieGry()
+        {
+            int i = 1;
+            foreach (var ruch in kontroler.Historia)
+            {
+                Console.WriteLine($"{i}  {ruch.Liczba}  {ruch.Wynik}  {ruch.Czas}  {ruch.StatusGry}");
+                i++;
+            }
         }
     }
 }

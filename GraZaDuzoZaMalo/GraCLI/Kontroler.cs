@@ -45,7 +45,7 @@ namespace GraCLI
             widok.CzyscEkran();
             //ToDo: ustaw zakres do losowania
             gra = new Gra(1, 100);
-            Console.WriteLine("Wylosowano" + gra.wylosowanaLiczba); //do usunięcia
+            //Console.WriteLine("Wylosowano" + gra.wylosowanaLiczba); //do usunięcia
             do
             {
                 int propozycja= 0;
@@ -77,14 +77,6 @@ namespace GraCLI
             widok.WypiszHistorieGry();
         }
 
-        public void WypiszHistorieGry()
-        {
-            int i = 1;
-            foreach (var ruch in kontroler.Historia)
-            {
-                Console.WriteLine($"{i}  {ruch.Liczba}  {ruch.Wynik}  {ruch.Czas}  {ruch.StatusGry}");
-                i++;
-            }
-        }
+        
     }
 }

@@ -8,7 +8,7 @@ namespace GraModel //logika gry
 {
     public class Gra
     {
-        public readonly /*private*/ int wylosowanaLiczba; //readonly jest metodą - może być użyty przy polach private
+        /*public readonly*/ int wylosowanaLiczba; //readonly jest metodą - może być użyty przy polach private
         //przy projektowaniu można na chwilę zmienić na public, albo zrobić metodę w ramach klasy, aby wyświetlić priv.
         public int MinZakres { get; } //private set; - mogę zmienić wewnątrz mojej klasy (readonly nie)
         public int MaxZakres { get; }
